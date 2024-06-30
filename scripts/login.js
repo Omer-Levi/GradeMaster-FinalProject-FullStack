@@ -6,7 +6,7 @@ document.getElementById('login-form').addEventListener('submit', function(event)
 
     // Simple validation
     if (username === '' || password === '') {
-        document.getElementById('error-message').innerText = 'אנא מלא את כל השדות.';
+        document.getElementById('error-message').innerText = 'Please fill in all fields.';
         return;
     }
 
@@ -15,6 +15,6 @@ document.getElementById('login-form').addEventListener('submit', function(event)
     if (username === 'teacher' && password === 'password') {
         window.location.href = 'main.html';
     } else {
-        document.getElementById('error-message').innerText = 'שם משתמש או סיסמה שגויים.';
+        document.getElementById('error-message').innerText = 'Username or password incorrect.';
     }
 });
