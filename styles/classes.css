@@ -1,3 +1,4 @@
+
 .form-group {
     margin-bottom: 15px;
 }
@@ -26,14 +27,6 @@ button:hover {
     background-color: #0056b3;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
-}
 
-ul li {
-    background-color: #f8f9fa;
-    padding: 10px;
-    margin-bottom: 5px;
-    border-radius: 4px;
-}
+
+
