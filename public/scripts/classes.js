@@ -5,7 +5,7 @@ document.getElementById('class-form').addEventListener('submit', function(event)
     const classFile = document.getElementById('class-file').files[0];
 
     if (!classFile) {
-        alert('אנא בחר קובץ CSV.');
+        alert('Please select a CSV file.');
         return;
     }
 
