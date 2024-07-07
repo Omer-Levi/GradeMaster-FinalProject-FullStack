@@ -4,13 +4,13 @@ exports.saveGrades = (req, res) => {
     const { studentId, assignmentGrade, examGrade } = req.body;
 
     if (!studentId || !assignmentGrade || !examGrade) {
-        return res.status(400).send({ message: 'אנא מלא את כל השדות.' });
+        return res.status(400).send({ message: 'Please fill in all fields.' });
     }
 
     const query = 'INSERT INTO grades (student_id, assignment_grade, exam_grade) VALUES (?, ?, ?)';
     db.query(query, [studentId, assignmentGrade, examGrade], (err, result) => {
         if (err) throw err;
-        res.send({ message: 'הציונים נשמרו בהצלחה.' });
+        res.send({ message: 'Grades successfully saved.' });
     });
 };
 
@@ -24,7 +24,7 @@ exports.exportGrades = (req, res) => {
         if (err) throw err;
 
         let csvContent = 'data:text/csv;charset=utf-8,';
-        csvContent += 'שם הסטודנט,ציון מטלה,ציון בחינה\n';
+        csvContent += 'Student name, assignment grade, exam grade\n';
 
         results.forEach(grade => {
             csvContent += `${grade.student},${grade.assignment_grade},${grade.exam_grade}\n`;

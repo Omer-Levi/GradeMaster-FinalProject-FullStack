@@ -5,7 +5,7 @@ exports.updateSettings = (req, res) => {
     const { teacherId, name, password } = req.body;
 
     if (!teacherId || !name || !password) {
-        return res.status(400).send({ message: 'אנא מלא את כל השדות.' });
+        return res.status(400).send({ message: 'Please fill in all fields.' });
     }
 
     bcrypt.hash(password, 10, (err, hash) => {
@@ -14,7 +14,7 @@ exports.updateSettings = (req, res) => {
         const query = 'UPDATE teachers SET name = ?, password = ? WHERE id = ?';
         db.query(query, [name, hash, teacherId], (err, result) => {
             if (err) throw err;
-            res.send({ message: 'ההגדרות עודכנו בהצלחה.' });
+            res.send({ message: 'The settings have been updated successfully.' });
         });
     });
 };
